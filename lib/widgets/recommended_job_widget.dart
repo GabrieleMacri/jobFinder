@@ -21,6 +21,7 @@ class RecomendedJobWidget extends StatelessWidget {
               child: FaIcon(
                 job.companyIcon,
                 size: 50,
+                semanticsLabel: 'Company Icon',
               ),
             ),
             Text(
@@ -37,7 +38,7 @@ class RecomendedJobWidget extends StatelessWidget {
               ),
             ),
             Text(
-              '\$${job.salary.toStringAsFixed(2)}/y',
+              '\$${job.salary.toStringAsFixed(2)}/year',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
