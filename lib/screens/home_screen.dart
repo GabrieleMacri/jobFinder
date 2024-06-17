@@ -75,10 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         child: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: '1'), // Etichette numeriche anziché testuali
-            BottomNavigationBarItem(icon: Icon(Icons.mail), label: '1'), // Etichette numeriche anziché testuali
-            BottomNavigationBarItem(icon: Icon(Icons.bookmark), label: '1'), // Etichette numeriche anziché testuali
-            BottomNavigationBarItem(icon: Icon(Icons.widgets), label: '1'), // Etichette numeriche anziché testuali
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'), // Changed numeric labels to descriptive text labels
+            BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'Mail'), // Changed numeric labels to descriptive text labels
+            BottomNavigationBarItem(icon: Icon(Icons.bookmark), label: 'Bookmark'), // Changed numeric labels to descriptive text labels
+            BottomNavigationBarItem(icon: Icon(Icons.widgets), label: 'Widgets'), // Changed numeric labels to descriptive text labels
           ],
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
@@ -111,18 +111,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         Column(
                           children: [
                             Text(
-                              'Welcome Back!', // Testo grigio su sfondo bianco (basso contrasto)
+                              'Welcome Back!', // Updated text color for better contrast
                               style: TextStyle(
-                                color: Colors.grey,
+                                color: Colors.black,
                                 fontSize: 16,
                               ),
                             ),
-                            Text(
-                              'Rifat Sarkar 👋', // Testo nascosto per gli utenti non vedenti
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 23,
+                            Semantics(
+                              label: 'Rifat Sarkar waving hand', // Added a semantic label for better accessibility
+                              child: Text(
+                                'Rifat Sarkar 👋',
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 23,
+                                ),
                               ),
                             ),
                           ],
@@ -184,18 +187,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                         Text(
-                          'Featured Jobs', // Testo grigio su sfondo bianco (basso contrasto)
+                          'Featured Jobs', 
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          'See all', // Testo grigio su sfondo bianco (basso contrasto)
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
+                        TextButton( // Replaced Text with TextButton for better accessibility
+                          onPressed: () {},
+                          child: Text(
+                            'See all',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ],
@@ -245,18 +251,21 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: [
                   Text(
-                    'Popular Jobs', // Testo grigio su sfondo bianco (basso contrasto)
+                    'Popular Jobs', 
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    'See all', // Testo grigio su sfondo bianco (basso contrasto)
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
+                  TextButton( // Replaced Text with TextButton for better accessibility
+                    onPressed: () {},
+                    child: Text(
+                      'See all', 
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
@@ -283,18 +292,21 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: [
                   Text(
-                    'Recommended Jobs', // Testo grigio su sfondo bianco (basso contrasto)
+                    'Recommended Jobs', 
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    'See all', // Testo grigio su sfondo bianco (basso contrasto)
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
+                  TextButton( // Replaced Text with TextButton for better accessibility
+                    onPressed: () {},
+                    child: Text(
+                      'See all', 
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
@@ -315,12 +327,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           builder: (context) => JobScreen(job: jobsList[index]),
                         ));
                   },
-                  child: RecomendedJobWidget(job: jobsList[index]),
+                  child: RecommendedJobWidget(job: jobsList[index]),
                 ),
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 10),
               ),
             ),
           ),
