@@ -56,12 +56,14 @@ class _JobScreenState extends State<JobScreen> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
+                          semanticLabel: 'Go back',
                         ),
                       ),
                       Container(
                         child: FaIcon(
                           widget.job.companyIcon,
                           size: 40,
+                          semanticLabel: 'Company icon',
                         ),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -72,6 +74,7 @@ class _JobScreenState extends State<JobScreen> {
                       Icon(
                         Icons.bookmark_add,
                         color: Colors.white,
+                        semanticLabel: 'Bookmark job',
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,12 +87,14 @@ class _JobScreenState extends State<JobScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
+                    semanticsLabel: '${widget.job.job}, job title',
                   ),
                   Text(
                     widget.job.company,
                     style: TextStyle(
                       color: Colors.grey.shade300,
                     ),
+                    semanticsLabel: '${widget.job.company}, company name',
                   ),
                   Row(
                     children: [
@@ -141,6 +146,7 @@ class _JobScreenState extends State<JobScreen> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
+                        semanticsLabel: 'Salary, \$${widget.job.salary.toStringAsFixed(2)} per year',
                       ),
                       Text(
                         'California, USA',
@@ -149,6 +155,7 @@ class _JobScreenState extends State<JobScreen> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
+                        semanticsLabel: 'Location, California, USA',
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,6 +192,7 @@ class _JobScreenState extends State<JobScreen> {
                                       ? Colors.black
                                       : Colors.grey,
                                 ),
+                                semanticsLabel: 'Tab ${parts[index]}',
                               ),
                             ),
                           ),
