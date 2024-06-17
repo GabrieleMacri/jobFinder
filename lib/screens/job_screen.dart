@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter';
 
 import '../models/job_model.dart';
 
@@ -27,6 +27,7 @@ class _JobScreenState extends State<JobScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             flex: 4,
@@ -46,6 +47,7 @@ class _JobScreenState extends State<JobScreen> {
               ),
               padding: EdgeInsets.all(40),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -103,7 +105,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       ),
                       Container(
                         child: Text(
@@ -115,7 +117,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       ),
                       Container(
                         child: Text(
@@ -127,7 +129,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 8),
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,12 +168,13 @@ class _JobScreenState extends State<JobScreen> {
                 child: Stack(
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 30),
                         Row(
                           children: List.generate(
                             parts.length,
-                                (index) => GestureDetector(
+                            (index) => GestureDetector(
                               onTap: () {
                                 setState(() {
                                   selectedIndex = index;
@@ -207,19 +210,21 @@ class _JobScreenState extends State<JobScreen> {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 20),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Apply Now'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: widget.job.bannerColor,
-                          minimumSize: Size(double.infinity, 50),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 20),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Apply Now'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: widget.job.bannerColor,
+                            minimumSize: Size(double.infinity, 50),
+                          ),
                         ),
                       ),
                     ),
                   ],
-                  alignment: Alignment.bottomCenter,
                 ),
               ),
             ),
