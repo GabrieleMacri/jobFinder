@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/job_model.dart';
 
 class FeaturedJobWidget extends StatelessWidget {
-  FeaturedJobWidget({Key? key, required this.job});
+  FeaturedJobWidget({Key? key, required this.job}) : super(key: key);
 
   final JobModel job;
 
@@ -29,7 +29,7 @@ class FeaturedJobWidget extends StatelessWidget {
             children: [
               Container(
                 child: Semantics(
-                  label: 'Company Icon',
+                  label: 'Company Icon representing ${job.company}',
                   child: FaIcon(job.companyIcon),
                 ),
                 decoration: BoxDecoration(
@@ -54,13 +54,14 @@ class FeaturedJobWidget extends StatelessWidget {
                     job.company,
                     style: TextStyle(
                       color: Colors.grey.shade300,
+                      fontSize: 16, // Accessible font size
                     ),
                   ),
                 ],
               ),
               Spacer(),
               Semantics(
-                label: 'Bookmark',
+                label: 'Bookmark job',
                 child: Icon(
                   Icons.bookmark_add,
                   color: Colors.grey.shade300,
@@ -113,7 +114,7 @@ class FeaturedJobWidget extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white, fontSize: 14), // Accessible font size
       ),
     );
   }
