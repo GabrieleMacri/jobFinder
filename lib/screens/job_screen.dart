@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter';
 
 import '../models/job_model.dart';
 
@@ -56,6 +56,7 @@ class _JobScreenState extends State<JobScreen> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
+                          semanticLabel: 'Back',
                         ),
                       ),
                       Container(
@@ -72,6 +73,7 @@ class _JobScreenState extends State<JobScreen> {
                       Icon(
                         Icons.bookmark_add,
                         color: Colors.white,
+                        semanticLabel: 'Bookmark',
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +105,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       ),
                       Container(
                         child: Text(
@@ -115,7 +117,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       ),
                       Container(
                         child: Text(
@@ -127,7 +129,7 @@ class _JobScreenState extends State<JobScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding:
-                        EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 8),
                       ),
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,19 +173,24 @@ class _JobScreenState extends State<JobScreen> {
                         Row(
                           children: List.generate(
                             parts.length,
-                                (index) => GestureDetector(
+                            (index) => GestureDetector(
                               onTap: () {
                                 setState(() {
                                   selectedIndex = index;
                                 });
                               },
-                              child: Text(
-                                parts[index],
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: (selectedIndex == index)
-                                      ? Colors.black
-                                      : Colors.grey,
+                              child: Semantics(
+                                label: parts[index],
+                                button: true,
+                                selected: selectedIndex == index,
+                                child: Text(
+                                  parts[index],
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: (selectedIndex == index)
+                                        ? Colors.black
+                                        : Colors.grey,
+                                  ),
                                 ),
                               ),
                             ),
