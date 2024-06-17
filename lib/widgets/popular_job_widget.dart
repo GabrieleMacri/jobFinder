@@ -14,10 +14,12 @@ class PopularJobWidget extends StatelessWidget {
       label: 'Job information',
       child: Container(
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start, // Added for better semantics
           children: [
             FaIcon(
               job.companyIcon,
               size: 45,
+              semanticLabel: 'Company icon', // Added for better accessibility
             ),
             SizedBox(width: 15),
             Expanded(
