@@ -10,96 +10,104 @@ class FeaturedJobWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: job.bannerColor,
-        borderRadius: BorderRadius.circular(30),
-        image: DecorationImage(
-          image: AssetImage(
-            'images/pattern.png',
+    return Semantics(
+      label: 'Featured Job Information',
+      child: Container(
+        decoration: BoxDecoration(
+          color: job.bannerColor,
+          borderRadius: BorderRadius.circular(30),
+          image: DecorationImage(
+            image: AssetImage(
+              'images/pattern.png',
+            ),
+            repeat: ImageRepeat.repeat,
           ),
-          repeat: ImageRepeat.repeat,
         ),
-      ),
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      padding: EdgeInsets.all(25),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                child: Semantics(
-                  label: 'Company Icon',
-                  child: FaIcon(job.companyIcon),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                padding: EdgeInsets.all(15),
-              ),
-              SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    job.job,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.all(25),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  child: Semantics(
+                    label: 'Company Icon',
+                    child: FaIcon(job.companyIcon),
                   ),
-                  Text(
-                    job.company,
-                    style: TextStyle(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: EdgeInsets.all(15),
+                ),
+                SizedBox(width: 15),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        job.job,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        job.company,
+                        style: TextStyle(
+                          color: Colors.grey.shade300,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Semantics(
+                  label: 'Bookmark Job',
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.bookmark_add,
                       color: Colors.grey.shade300,
                     ),
+                    onPressed: () {},
                   ),
-                ],
-              ),
-              Spacer(),
-              Semantics(
-                label: 'Bookmark',
-                child: Icon(
-                  Icons.bookmark_add,
-                  color: Colors.grey.shade300,
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Wrap(
-            spacing: 10,
-            children: [
-              _buildJobDetailChip('Design'),
-              _buildJobDetailChip('Full-Time'),
-              _buildJobDetailChip('Junior'),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                '\$${job.salary.toStringAsFixed(2)}/year',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              ],
+            ),
+            SizedBox(height: 10),
+            Wrap(
+              spacing: 10,
+              children: [
+                _buildJobDetailChip('Design'),
+                _buildJobDetailChip('Full-Time'),
+                _buildJobDetailChip('Junior'),
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Text(
+                  '\$${job.salary.toStringAsFixed(2)}/year',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Spacer(),
-              Text(
-                'California, USA',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                Spacer(),
+                Text(
+                  'California, USA',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
